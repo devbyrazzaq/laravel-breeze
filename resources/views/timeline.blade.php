@@ -4,7 +4,8 @@
         <div class="grid grid-cols-12 gap-6">
             <div class="col-span-7">
                 <x-card>
-                    <form action="" method="post">
+                    <form action="{{ route('statuses.store') }}" method="post">
+                        @csrf
                         <div class="flex">
                             <div class="flex-shirnk-0 mr-3">
                                 <img class="w-10 h10 rounded-full" src="https://i.pravatar.cc/150" alt="{{ Auth::user()->name }}" srcset="">

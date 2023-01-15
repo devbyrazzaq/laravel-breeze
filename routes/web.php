@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TimelineController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,11 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
+// Route::view('/dashboard', 'dashboard')->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
     Route::get('timeline', TimelineController::class)->name('timeline');
+    Route::post('status', [StatusController::class, 'store'])->name('statuses.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
