@@ -36,7 +36,10 @@
                                         <div class="leading-relaxed">
                                             {{ $status->body }}
                                         </div>
-                                        <div class="text-sm text-gray-600">{{ $status->created_at->format("d F, Y") }}</div>
+                                        <div class="text-sm text-gray-600">
+                                            {{-- {{ $status->created_at->format("d F, Y") }} --}}
+                                            {{ $status->created_at->diffForHumans() }}
+                                        </div>
                                     </div>
                                 </div>
                             </x-card>
