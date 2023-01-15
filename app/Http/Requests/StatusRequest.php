@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StatusRequest extends FormRequest
 {
@@ -26,5 +27,10 @@ class StatusRequest extends FormRequest
         return [
             'body' => ['required']
         ];
+    }
+
+    public function make($string)
+    {
+        return Auth::user()->makeStatus($string);
     }
 }
