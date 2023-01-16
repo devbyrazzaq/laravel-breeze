@@ -36,8 +36,12 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')">
+                            <x-dropdown-link :href="route('profile.info', Auth::user()->username)">
                                 {{ __('Profile') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Account Setting') }}
                             </x-dropdown-link>
 
                             <!-- Authentication -->
@@ -82,7 +86,6 @@
         @auth
             
             <div class="pt-2 pb-3 space-y-1">
-                
                 <x-responsive-nav-link :href="route('timeline')" :active="request()->routeIs('timeline')">
                     {{ __('Timeline') }}
                 </x-responsive-nav-link>
@@ -97,8 +100,12 @@
                     </div>
 
                     <div class="mt-3 space-y-1">
-                        <x-responsive-nav-link :href="route('profile.edit')">
+                        <x-responsive-nav-link :href="route('profile.info', Auth::user()->username)">
                             {{ __('Profile') }}
+                        </x-responsive-nav-link>
+
+                        <x-responsive-nav-link :href="route('profile.edit')">
+                            {{ __('Account Setting') }}
                         </x-responsive-nav-link>
 
                         <!-- Authentication -->

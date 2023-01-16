@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileInformationController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TimelineController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/profile/{user}', ProfileInformationController::class)->name('profile.info');
 
 require __DIR__.'/auth.php';

@@ -1,7 +1,7 @@
 <x-app-layout>
 
     <x-container>
-        <div class="grid grid-cols-12 gap-6">
+        <div class="grid grid-cols-12 gap-6 mt-6">
             <div class="col-span-7">
                 <x-card>
                     <form action="{{ route('statuses.store') }}" method="post">
