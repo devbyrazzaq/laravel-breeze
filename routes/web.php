@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileInformationController;
 use App\Http\Controllers\StatusController;
@@ -31,7 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
+    
+    Route::get('/profile/{user}/following', [FollowingController::class, 'following'])->name('profile.following');
+    Route::get('/profile/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
     // Route::get('/profile/{user}', ProfileInformationController::class)->name('profile.info')->withoutMiddleware('auth');
 
 });
