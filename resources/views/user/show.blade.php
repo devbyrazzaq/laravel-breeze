@@ -1,8 +1,45 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $user->name }}
-        </h2>
-    </x-slot>
+    
+    <div class="border-b py-16">
+        <x-container>
+            <div class="flex">
+                <div class="flex-shrink-0 mr-3">
+                    <img class="rounded-full w-16 h-16 border-2 border-blue-500 p-1" src="{{ $user->gravatar() }}" alt="{{ $user->name }}">
+                </div>
+                <div class="">
+                    <h1 class="font-semibold mb-3">{{ $user->name }}</h1>
+                    <div class="text-sm text-gray-500">
+                        Joined {{ $user->created_at->diffForHumans() }}
+                    </div>
+                </div>
+            </div>
+        </x-container>
+    </div>
+    <div class="border-b">
+        <x-container>
+            <div class="flex">
+                <div class="px-10 py-3 text-center border-r border-l">
+                    <div class="text-2xl font-semibold">{{ $user->statuses->count()  }}</div>
+                    <div class="uppercase text-xs text-gray-600">Status</div>
+                </div>
+                <div class="px-10 py-3 text-center border-r">
+                    <div class="text-2xl font-semibold">{{ $user->follows->count()  }}</div>
+                    <div class="uppercase text-xs text-gray-600">Following</div>
+                </div>
+                <div class="px-10 py-3 text-center border-r">
+                    <div class="text-2xl font-semibold">{{ $user->followers->count() }}</div>
+                    <div class="uppercase text-xs text-gray-600">Follower</div>
+                </div>
+            </div>
+        </x-container>  
+    </div>
+
+    <x-container>
+        <div class="grid grid-cols-2 mt-5">
+            <div class="space-y-6">
+                <x-statuses :statuses="$statuses" />
+            </div>
+        </div>
+    </x-container>
     
 </x-app-layout>
