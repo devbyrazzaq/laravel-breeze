@@ -5,7 +5,7 @@
     <x-statistic :user="$user"/>
 
     <x-container>
-        <div class="grid grid-cols-2 mt-5">
+        <div class="mt-5">
             <x-following :users="$follows"/>
         </div>
     </x-container>

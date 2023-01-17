@@ -1,6 +1,6 @@
 
 
-        <div class="space-y-6">
+        <div class="grid grid-cols-3 gap-5">
             @foreach ($users as $user)
                 <x-card>
                     <div class="flex items-center">
