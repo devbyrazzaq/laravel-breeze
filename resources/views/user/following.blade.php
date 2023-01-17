@@ -6,7 +6,9 @@
 
     <x-container>
         <div class="mt-5">
-            <x-following :users="$follows"/>
+            <div class="grid grid-cols-3 gap-5">
+                <x-following :users="$follows"/>
+            </div>
         </div>
     </x-container>
 </x-app-layout>

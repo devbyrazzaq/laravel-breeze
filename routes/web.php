@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExploreUserController;
 use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileInformationController;
@@ -40,6 +41,8 @@ Route::middleware('auth')->group(function () {
     // Route::get('/profile/{user}/following', [FollowingController::class, 'following'])->name('profile.following');
     // Route::get('/profile/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
     // Route::get('/profile/{user}', ProfileInformationController::class)->name('profile.info')->withoutMiddleware('auth');
+
+    Route::get('explore', ExploreUserController::class)->name('user.index');
 
 });
 

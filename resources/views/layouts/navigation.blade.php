@@ -16,6 +16,10 @@
                     <x-nav-link :href="route('timeline')" :active="request()->routeIs('timeline')">
                         {{ __('Timeline') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                        {{ __('Explore Users') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -88,6 +92,10 @@
             <div class="pt-2 pb-3 space-y-1">
                 <x-responsive-nav-link :href="route('timeline')" :active="request()->routeIs('timeline')">
                     {{ __('Timeline') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                    {{ __('Explore Users') }}
                 </x-responsive-nav-link>
             </div>
 
